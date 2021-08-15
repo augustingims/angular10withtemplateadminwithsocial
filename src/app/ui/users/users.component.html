@@ -1,0 +1,75 @@
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+      Gestion des utilisateurs
+    </h1>
+
+    <ol class="breadcrumb">
+      <li><a routerLink="/dashboard"><i class="fa fa-dashboard"></i> Tableau de Bord </a></li>
+      <li class="active"> Utilisateurs </li>
+    </ol>
+  </section>
+  <section class="content">
+    <ngx-spinner [fullScreen]="false" bdColor="transparancy" size="medium" color="#dd4b39" type="ball-clip-rotate-multiple"></ngx-spinner>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+          <div class="box-header">
+            <h3 class="box-title">Liste des utilisateurs</h3>
+          </div>
+          <div class="box-body">
+            <table id="example2" class="table table-bordered table-hover">
+              <thead>
+              <tr>
+                <th>Login</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+                <th>Langue</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+              <tbody *ngIf="users">
+              <tr *ngFor="let user of users; trackBy: trackIdentity ">
+                <td>{{ user.login }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.langKey }}</td>
+                <td>
+                  <button class="btn btn-danger btn-xs" (click)="setActive(user, true)" *ngIf="!user.activated">
+                    <i class="fa fa-lock"></i>
+                  </button>
+                  <button class="btn btn-success btn-xs" (click)="setActive(user, false)" *ngIf="user.activated"
+                          [disabled]="!currentAccount || currentAccount.login === user.login">
+                    <i class="fa fa-unlock"></i>
+                  </button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-xs btn-info" (click)="viewUser(user)">
+                    <i class="fa fa-eye"></i>
+                  </button>
+                  <button type="button" class="btn btn-xs btn-warning" [routerLink]="['./', user.login, 'edit']" *ngIf="currentAccount"
+                          [disabled]="!currentAccount || currentAccount.login === user.login">
+                    <i class="fa fa-edit"></i>
+                  </button>
+                  <button class="btn btn-xs btn-danger" (click)="deleteUser(user)" *ngIf="currentAccount"
+                          [disabled]="!currentAccount || currentAccount.login === user.login">
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div *ngIf="users">
+            <div class="row text-center">
+              <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="transition()"></ngb-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

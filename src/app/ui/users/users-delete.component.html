@@ -1,0 +1,23 @@
+<form *ngIf="user" name="deleteForm" (ngSubmit)="confirmDelete(user?.login!)">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" (click)="cancel()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Confirmation de suppression de l'utilisateur</h4>
+    </div>
+
+    <div class="modal-body">
+        <p >ATTENTION !!! Vous est sur le point de supprimer le profil de {{ user.login }}. <br /> Voulez-vous vraiment continuer ?</p>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+            <i class="fa fa-ban"></i>&nbsp;
+            <span>Annuler</span>
+        </button>
+        <button type="submit" class="btn btn-danger">
+            <i class="fa fa-trash"></i>&nbsp;
+            <span>Supprimer</span>
+        </button>
+    </div>
+</form>

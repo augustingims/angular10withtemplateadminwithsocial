@@ -1,0 +1,16 @@
+.error-page > .headline {
+  float: none !important;
+  font-size: 100px;
+  font-weight: 300;
+}
+
+.error-page {
+  width: 100% !important;
+  margin: 20px auto 0 auto;
+  padding: 10px;
+}
+
+.error-page > .error-content {
+  margin-left: 0 !important;
+  display: block;
+}

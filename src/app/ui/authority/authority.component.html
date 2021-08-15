@@ -1,0 +1,72 @@
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+      Liste des roles
+    </h1>
+    <ol class="breadcrumb">
+      <li><a routerLink="/dashboard"><i class="fa fa-dashboard"></i> Tableau de Bord </a></li>
+      <li class="active">  Roles </li>
+    </ol>
+  </section>
+
+  <section class="content">
+
+    <div class="row">
+      <div class="col-md-12" style="margin-bottom: 15px;">
+        <button class="btn btn-danger" (click)="newAuthority()" >
+          <i class="fa fa-plus"></i>
+          <span>Créer un nouveau role</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Liste des profils</h3>
+          </div>
+          <ngx-spinner bdColor="transparancy" size="medium" color="#0beb3c" type ="ball-clip-rotate-multiple" [fullScreen]="false"></ngx-spinner>
+          <div class="box-body">
+            <div class="box-body table-responsive no-padding">
+              <table *ngIf="authorities" class="table table-sm table-striped">
+                <thead>
+                  <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Nom du role</span></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let authority of authorities; trackBy: trackIdentity; let item = index; ">
+                    <td>{{item + 1}}</td>
+                    <td>{{authority.name}}</td>
+                    <td class="text-right">
+                      <div class="btn-group">
+                        <button type="button" (click)="detailAuthority(authority)"
+                                class="btn btn-info btn-sm">
+                          <i class="fa fa-eye"></i>
+                          <span class="d-none d-md-inline">Voir</span>
+                        </button>
+                        <button type="button" (click)="deleteAuthority(authority)"
+                                class="btn btn-danger btn-sm" >
+                          <i class="fa fa-times"></i>
+                          <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="authorities">
+        <div class="row text-center">
+          <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,144 @@
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+      Gestion des utilisateurs
+    </h1>
+    <ol class="breadcrumb">
+      <li><a routerLink="/dashboard"><i class="fa fa-dashboard"></i> Tableau de Bord </a></li>
+      <li><a (click)="previousState()"> Utilisateurs</a> </li>
+      <li class="active"> Modification de l'utilisateur </li>
+    </ol>
+  </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="box box-success">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Informations de connexion</h3>
+                                        </div>
+                                        <div class="box-body">
+                                            <div class="form-group">
+                                                <label>Login</label>
+                                                <input type="text" class="form-control"  placeholder="Entrer le login ..." [value]="user.login" disabled>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="activated">
+                                                    <input type="checkbox" class="form-check-input" formControlName="activated"
+                                                           id="activated" name="activated">
+                                                    &nbsp;&nbsp;&nbsp;<span>activé</span>
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group" *ngIf="languages && languages.length > 0">
+                                                <label>Langue</label>
+                                                <select class="form-control" id="langKey" name="langKey" formControlName="langKey">
+                                                    <option *ngFor="let language of languages" [value]="language">{{ language }}</option>
+                                                </select>
+                                            </div>
+
+                                          <div class="form-group">
+                                            <label>Profil</label>
+                                            <input type="text" class="form-control" placeholder="Profil"
+                                                   name="positionName" [value]="user.positionName"  disabled>
+                                          </div>
+                                          <div class="form-group">
+                                            <label>ICN</label>
+                                            <input type="text" class="form-control" placeholder="ICN"
+                                                   name="icn" [value]="user.icn" disabled>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="box box-warning">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Informations personnelles</h3>
+                                        </div>
+                                        <div class="box-body">
+                                            <div class="form-group">
+                                                <label>Nom de famille</label>
+                                                <input type="text" class="form-control" placeholder="Entrer le nom de famille ..."
+                                                       name="lastName" formControlName="lastName">
+                                                <div *ngIf="editForm.get('lastName')!.invalid && (editForm.get('lastName')!.dirty || editForm.get('lastName')!.touched)">
+                                                    <small class="form-text text-danger" *ngIf="editForm.get('lastName')?.errors?.maxlength">
+                                                        Ce champs doit contenir 50 caractères maximum.
+                                                    </small>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Prénom</label>
+                                                <input type="text" class="form-control" placeholder="Entrer le prenom ..."
+                                                       name="firstName" formControlName="firstName">
+                                                <div *ngIf="editForm.get('firstName')!.invalid && (editForm.get('firstName')!.dirty || editForm.get('firstName')!.touched)">
+                                                    <small class="form-text text-danger" *ngIf="editForm.get('firstName')?.errors?.maxlength">
+                                                        Ce champs doit contenir 50 caractères maximum.
+                                                    </small>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="text" class="form-control" placeholder="Entrer l'adresse email ..."
+                                                       name="email" formControlName="email">
+                                                <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+                                                    <small class="form-text text-danger" *ngIf="editForm.get('email')?.errors?.required">
+                                                        Ce champ est obligatoire.
+                                                    </small>
+                                                    <small class="form-text text-danger" *ngIf="editForm.get('email')?.errors?.maxlength">
+                                                        Ce champs doit contenir 100 caractères maximum.
+                                                    </small>
+                                                    <small class="form-text text-danger" *ngIf="editForm.get('email')?.errors?.minlength">
+                                                        Ce champs doit contenir 5 caractères minimum.
+                                                    </small>
+                                                    <small class="form-text text-danger" *ngIf="editForm.get('email')?.errors?.email">
+                                                        Email invalide.
+                                                    </small>
+                                                </div>
+                                            </div>
+                                          <div class="form-group">
+                                            <label>Numéro de téléphone</label>
+                                            <input type="text" class="form-control" placeholder="Numéro de téléphone"
+                                                   name="phoneNumber" [value]="user.phoneNumber"  disabled>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Profiles</label>
+                                    <select class="form-control" multiple name="authority" formControlName="authorities">
+                                      <option *ngFor="let authority of authorities" [value]="authority" disabled>{{ authority }}</option>
+                                    </select>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" (click)="previousState()">
+                                <i class="fa fa-ban"></i>&nbsp;
+                                <span>Annuler</span>
+                            </button>
+                            <button type="submit" class="btn btn-primary" [disabled]="editForm.invalid || isSaving" >
+                                <i class="fa fa-save"></i>&nbsp;
+                                <span>Enregistrer</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

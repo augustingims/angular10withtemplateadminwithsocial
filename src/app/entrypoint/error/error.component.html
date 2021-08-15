@@ -1,0 +1,46 @@
+<div class="lockscreen-wrapper">
+  <div class="lockscreen-logo">
+    <a><b>Template</b>User<b>Admin</b></a>
+  </div>
+  <!-- User name -->
+  <div class="lockscreen-name" *ngIf="error404"> <i class="fa fa-warning text-warning"></i>Page non trouvée</div>
+  <div class="lockscreen-name" *ngIf="error403"><i class="fa fa-warning text-warning"></i>Accès refusé</div>
+
+  <!-- START LOCK SCREEN ITEM -->
+  <div class="lockscreen-item text-center" *ngIf="error404">
+    <div class="error-page">
+      <h2 class="headline text-warning text-center"> 404</h2>
+      <div class="error-content">
+        <h3><i class="fa fa-warning text-warning"></i> Oops! Page non trouvée.</h3>
+        <p>
+          La page n'existe pas.
+        </p>
+      </div>
+      <!-- /.error-content -->
+    </div>
+    <!-- /.error-page -->
+  </div>
+  <div class="lockscreen-item text-center" *ngIf="error403">
+    <div class="error-page">
+      <h2 class="headline text-warning text-center"> 403</h2>
+      <div class="error-content">
+        <h3><i class="fa fa-warning text-warning"></i> Oops! Accès refusé.</h3>
+        <p>
+          Vous n'êtes pas autorisé à accéder à cette page.
+        </p>
+      </div>
+      <!-- /.error-content -->
+    </div>
+    <!-- /.error-page -->
+  </div>
+  <!-- /.lockscreen-item -->
+  <div class="help-block text-center">
+    Une erreur s'est produite lors de votre connexion
+  </div>
+  <div class="text-center">
+    <a href="/">Essayez à nouveau de vous connecter</a>
+  </div>
+  <div class="lockscreen-footer text-center">
+    Skysoft Technology &copy; 2021
+  </div>
+</div>

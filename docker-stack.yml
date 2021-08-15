@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  angular-10-template-admin-with-social:
+    image: gitlab.com/angular-10-template-admin-with-social:latest
+    labels:
+      com.docker.stack.namespace: "devops"
+    environment:
+      SERVER_API_URL: "http://localhost:8080/"
+    networks:
+      - devops_web_network
+    deploy:
+      mode: replicated
+      replicas: 1
+
+networks:
+  devops_web_network:
+    name: devops_web_network

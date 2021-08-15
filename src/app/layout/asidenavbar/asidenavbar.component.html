@@ -1,0 +1,43 @@
+<aside class="main-sidebar" [ngSwitch]="isAuthenticated()">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar" style="height: auto;">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="assets/img/avatar.png" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>{{ account?.lastName }}</p>
+                <a><i class="fa fa-circle text-success"></i> En ligne</a>
+            </div>
+        </div>
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu my-menu" *ngSwitchCase="true">
+            <li class="header">NAVIGATION GÉNÉRALE</li>
+            <li routerLinkActive="active">
+                <a routerLink="/dashboard">
+                    <i class="fa fa-dashboard"></i> <span>Tableau de bord</span>
+                </a>
+            </li>
+            <li class="header" *appHasAnyAuthority="'ROLE_ADMIN'">ADMINISTRATION</li>
+            <li class="treeview" *appHasAnyAuthority="'ROLE_ADMIN'">
+                <a>
+                  <i class="fa fa-user-secret"></i>
+                  <span>Gestion utilisateurs</span>
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li routerLinkActive="active"><a routerLink="/users"><i class="fa fa-circle-o"></i> utilisateurs</a></li>
+                    <li routerLinkActive="active"><a routerLink="/authorities"><i class="fa fa-lock"></i> roles</a></li>
+                </ul>
+            </li>
+            <li class="header" *appHasAnyAuthority="'ROLE_ADMIN'">OUTILS</li>
+            <li routerLinkActive="active" *appHasAnyAuthority="'ROLE_ADMIN'">
+                <a routerLink="/audits"><i class="fa fa-cloud"></i> <span>audits</span></a>
+            </li>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

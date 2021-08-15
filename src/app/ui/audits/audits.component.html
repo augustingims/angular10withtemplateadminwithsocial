@@ -1,0 +1,87 @@
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+      Audits
+    </h1>
+    <ol class="breadcrumb">
+      <li><a routerLink="/dashboard"><i class="fa fa-dashboard"></i> Tableau de bord</a></li>
+      <li class="active">Audits</li>
+    </ol>
+  </section>
+  <section class="content">
+    <div>
+      <div class="row" *ngIf="audits">
+        <div class="col-md-12">
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Filtre par date</h3>
+            </div>
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="fromDate">De</label>
+                    <input id="fromDate" type="date" class="form-control" name="start" [(ngModel)]="fromDate" (ngModelChange)="transition()" required/>
+                  </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="toDate">A</label>
+                    <input id="toDate" type="date" class="form-control" name="end" [(ngModel)]="toDate" (ngModelChange)="transition()" required/>
+                  </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Liste Audits</h3>
+            </div>
+            <div class="box-body">
+              <div class="box-body table-responsive no-padding">
+
+                <div class="alert alert-warning" *ngIf="audits?.length === 0">
+                  <span>Aucun audit trouvé</span>
+                </div>
+
+                <table class="table table-sm table-striped" *ngIf="audits?.length > 0">
+                  <thead>
+                    <tr>
+                      <th><span>Date</span></th>
+                      <th><span>Utilisateur</span></th>
+                      <th><span>Etat</span></th>
+                      <th><span>Extra data</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let audit of audits">
+                      <td><span>{{audit.timestamp | date:'medium'}}</span></td>
+                      <td><small>{{audit.principal}}</small></td>
+                      <td>{{audit.type}}</td>
+                      <td>
+                        <span *ngIf="audit.data?.message">{{audit.data?.message}}</span>
+                        <span *ngIf="audit.data?.remoteAddress"><span>Remote Address</span> {{audit.data?.remoteAddress}}</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="transition()" ></ngb-pagination>
+      </div>
+    </div>
+  </section>
+</div>

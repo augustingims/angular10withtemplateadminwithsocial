@@ -1,0 +1,50 @@
+<div class="login-box">
+  <ngx-spinner [fullScreen]="false" bdColor="rgba(0,0,0,0.30)" size="medium" color="#dd4b39" type="ball-clip-rotate-multiple"></ngx-spinner>
+  <div class="login-logo">
+    <a href="/"><b>Template</b>User<b>Admin</b></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Connectez-vous</p>
+    <div class="alert alert-danger" *ngIf="authenticationError">
+      <strong>La connexion a échoué !</strong> Veuillez vérifier vos informations d'identification et réessayer.
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-group has-feedback">
+        <input  name="username" id="username" class="form-control" placeholder="Nom d'utilisateur" formControlName="username" #username>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" name="password" id="password" class="form-control" placeholder="Mot de passe" formControlName="password">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="icheck-danger">
+            <input type="checkbox" name="rememberMe" id="remember" formControlName="rememberMe">
+            <label for="remember">
+              Souviens-toi de moi
+            </label>
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit" class="btn btn-danger btn-block btn-flat">Connexion</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+    <div class="social-auth-links text-center">
+      <p>- OU -</p>
+      <a (click)="signInWithFB()" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+        Facebook</a>
+      <a (click)="signInWithGoogle()" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+        Google+</a>
+    </div>
+
+    <a routerLink="/reset/request">I forgot my password</a><br>
+
+  </div>
+  <!-- /.login-box-body -->
+</div>

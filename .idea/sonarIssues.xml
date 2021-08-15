@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="$PROJECT_DIR$/src/app/core/auth/auth-jwt.service.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/core/auth/user-route-access-service.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/core/core.module.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/entrypoint/change-password/change-password.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/entrypoint/error/error.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/entrypoint/login/login.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/entrypoint/login/login.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/entrypoint/login/login.service.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/entrypoint/reset-password/reset-password.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/layout/asidenavbar/asidenavbar.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/layout/asidenavbar/asidenavbar.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/layout/footernavbar/footernavbar.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/layout/topnavbar/topnavbar.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/shared/index.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/shared/model/token-social.model.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/ui/ui-routing.module.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/ui/users/users.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/Dockerfile">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/src/main/java/cm/skysoft/app/config/ApplicationProperties.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/src/main/java/cm/skysoft/app/config/SecurityConfiguration.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/src/main/java/cm/skysoft/app/mapper/AuthorityMapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/src/main/java/cm/skysoft/app/service/AuthorityService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/src/main/java/cm/skysoft/app/service/UserService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/src/main/java/cm/skysoft/app/service/dto/AuthorityDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/src/main/java/cm/skysoft/app/service/dto/UserDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/src/main/java/cm/skysoft/app/service/dto/UserSocialDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/src/main/java/cm/skysoft/app/service/impl/AuthorityServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/src/main/java/cm/skysoft/app/web/AuthorityResource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/src/main/java/cm/skysoft/app/web/UserJWTController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/src/main/java/cm/skysoft/app/web/vm/TokenSocialVM.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/src/main/resources/application-dev.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../spring/spring-boot-jwt-with-social-media/src/main/resources/application-prod.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/a.dummy">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
